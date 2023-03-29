@@ -1,21 +1,12 @@
 import sqlite3
-import os
 import json
 import pika
 
-try:
-    items_db = os.environ["itemsDB.db"]
-except KeyError:
-    items_db = "itemsDB.sqlite"
-try:
-    RABBITMQ_HOST = os.environ["RABBITMQ_HOST"]
-except KeyError:
-    RABBITMQ_HOST = "localhost"
+items_db = "itemsDB.sqlite"
 
-try:
-    RABBITMQ_QUEUE = os.environ["RABBITMQ_QUEUE"]
-except KeyError:
-    RABBITMQ_QUEUE = "item"
+RABBITMQ_HOST = "localhost"
+
+RABBITMQ_QUEUE = "item"
 
 
 sqliteDB = sqlite3.connect(items_db)
